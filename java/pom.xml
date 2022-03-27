@@ -84,7 +84,7 @@
             </executions>
             <configuration>
               <imageName>libmyapp</imageName>
-              <mainClass>dev.avelier.App</mainClass>
+              <mainClass>test.App</mainClass>
               <buildArgs>
                 --verbose
                 --shared

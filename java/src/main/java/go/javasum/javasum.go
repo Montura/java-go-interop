@@ -17,8 +17,8 @@ type JavaSum struct {
 }
 
 func CreateJavaSum() JavaSum {
-	var isolate *C.graal_isolatethread_t = C.Java_dev_avelier_createIsolate()
-	summator := C.Java_dev_avelier_createSummator(isolate)
+	var isolate *C.graal_isolatethread_t = C.Java_test_createIsolate()
+	summator := C.Java_test_createSummator(isolate)
 	return JavaSum{
 		isolate:  isolate,
 		summator: summator,
@@ -26,9 +26,9 @@ func CreateJavaSum() JavaSum {
 }
 
 func (s JavaSum) Calc(x float64) float64 {
-	return float64(C.Java_dev_avelier_callCalc(s.isolate, s.summator, C.double(x)))
+	return float64(C.Java_test_callCalc(s.isolate, s.summator, C.double(x)))
 }
 
 func (s JavaSum) CalcNTimes(n int64, x float64) float64 {
-	return float64(C.Java_dev_avelier_callCalcN(s.isolate, s.summator, C.double(x), C.longlong(n)))
+	return float64(C.Java_test1_callCalcN(s.isolate, s.summator, C.double(x), C.longlong(n)))
 }
